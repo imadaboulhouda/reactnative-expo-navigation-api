@@ -1,0 +1,3 @@
+- Réglé le probleme de getParams()
+- Tester le perfomance de l'application
+- expo build android && tester on phone
