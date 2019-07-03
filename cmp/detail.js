@@ -1,19 +1,42 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View,Text,Image } from 'react-native';
+
+
 export default class Detail extends React.Component
 {
      
    
-data = "hello";
+
      constructor(props){
         super(props);
+        console.log();
+        this.state = {
+            data:'',
+            image:'',
+        }
+        
+     }
+     componentDidMount()
+     {
+        this.setState({
+            data: this.props.navigation.state.params.items,
+            image:this.props.navigation.state.params.image,
+        })
+        console.log(this.state.image)
      }
    
      static navigationOptions =({navigation}) => {
-        return { title: navigation.getParams('name'),}    
+         console.log(navigation)
+        return { title: navigation.state.params.items,}    
      };
     render()
     {
-        return (<View><Text>Data:{data}</Text></View>)
+        return (<View>
+            { this.state.image.length == 0 ? <Text>Loading..</Text>:
+            <View>
+                <Image style={{ width:'100%',height:400}} source={{ uri:this.state.image }} />
+            <Text>Data:{this.state.data}</Text>
+            </View> }
+            </View>)
     }
 }
