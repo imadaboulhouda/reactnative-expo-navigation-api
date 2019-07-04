@@ -15,8 +15,8 @@ export default class Item extends React.Component
         
     }
     showPage = ()=>{
-        console.log(this.props.item);
-        this.props.navigate('Detail',{ items:this.props.name.first});
+        
+        this.props.navigate('Detail',{ items:this.props.name.first,image:this.props.image});
     }
     render(){
         return (

@@ -9,7 +9,7 @@ export default class Detail extends React.Component
 
      constructor(props){
         super(props);
-        console.log();
+        
         this.state = {
             data:'',
             image:'',
@@ -22,7 +22,7 @@ export default class Detail extends React.Component
             data: this.props.navigation.state.params.items,
             image:this.props.navigation.state.params.image,
         })
-        console.log(this.state.image)
+        console.log(this.state)
      }
    
      static navigationOptions =({navigation}) => {
@@ -32,7 +32,7 @@ export default class Detail extends React.Component
     render()
     {
         return (<View>
-            { this.state.image.length == 0 ? <Text>Loading..</Text>:
+            { !this.state.image ? <Text>Loading..</Text>:
             <View>
                 <Image style={{ width:'100%',height:400}} source={{ uri:this.state.image }} />
             <Text>Data:{this.state.data}</Text>
